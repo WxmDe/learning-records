@@ -22,6 +22,18 @@ public class DifferenceTest {
         //第一次执行时间为六秒前，之后每隔两秒钟执行一次
         /**
          * 1.schedule会以当前时间为准 首次是执行时间会变为当前时间，然后每隔两秒执行一次
+         *
+         * current time is :2019-06-05 16:49:27
+         Scheduled exec time is:2019-06-05 16:49:27
+         Task is being executed
+         Scheduled exec time is:2019-06-05 16:49:29
+         Task is being executed
+         Scheduled exec time is:2019-06-05 16:49:31
+         Task is being executed
+         Scheduled exec time is:2019-06-05 16:49:33
+         Task is being executed
+         Scheduled exec time is:2019-06-05 16:49:35
+         Task is being executed
          */
        /* timer.schedule(new TimerTask() { //定义一个内部类
             @Override
@@ -34,15 +46,25 @@ public class DifferenceTest {
 
         /**
          * 2.scheduleAtFixedRate会以最开始的时间为准去追赶当前时间去执行task 存在并发性 会连续执行3次 赶上进度
+         * current time is :2019-06-05 16:50:29
+         scheduleAtFixedRate exec time is:2019-06-05 16:50:23
+         scheduleAtFixedRateTask is being executed
+         scheduleAtFixedRate exec time is:2019-06-05 16:50:25
+         scheduleAtFixedRateTask is being executed
+         scheduleAtFixedRate exec time is:2019-06-05 16:50:27
+         scheduleAtFixedRateTask is being executed
+         scheduleAtFixedRate exec time is:2019-06-05 16:50:29
+         scheduleAtFixedRateTask is being executed
+         scheduleAtFixedRate exec time is:2019-06-05 16:50:31
          */
-        /*timer.scheduleAtFixedRate(new TimerTask() { //定义一个内部类
+        timer.scheduleAtFixedRate(new TimerTask() { //定义一个内部类
             @Override
             public void run() {
                 //打印当前的计划执行时间
                 System.out.println("scheduleAtFixedRate exec time is:"+sf.format(scheduledExecutionTime()));
                 System.out.println("scheduleAtFixedRateTask is being executed");
             }
-        }, calendar.getTime(), 2000);*/
+        }, calendar.getTime(), 2000);
 
         /**
          *   二.任务执行所需时间超出任务的执行周期间隔
@@ -91,7 +113,7 @@ public class DifferenceTest {
          Scheduled exec time is:2019-06-05 10:38:41
          Task executes
          */
-          timer.scheduleAtFixedRate(new TimerTask() { //定义一个内部类
+      /*    timer.scheduleAtFixedRate(new TimerTask() { //定义一个内部类
             @Override
             public void run() {
                 //打印当前的计划执行时间
@@ -103,7 +125,7 @@ public class DifferenceTest {
                 System.out.println("Scheduled exec time is:"+sf.format(scheduledExecutionTime()));
                 System.out.println("Task executes");
             }
-        }, currentcalendar.getTime(), 2000);
+        }, currentcalendar.getTime(), 2000);*/
 
 
     }

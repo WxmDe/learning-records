@@ -16,7 +16,8 @@ public class MyTimerTask extends TimerTask {
         this.name = name;
     }
 
-    public MyTimerTask(String inputName,long inputCostTime){
+    public
+    MyTimerTask(String inputName,long inputCostTime){
         name=inputName;
         costTime=inputCostTime;
     }
